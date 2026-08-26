@@ -1,6 +1,6 @@
 const siteConfig = {
   // ── Broker Identity ────────────────────────────────────────
-  brokerName: "AR Realestate Redsea",
+  brokerName: "AR Real Estate Redsea",
   brokerTagline: "Curated Homes. Trusted Expertise.",
   brokerLicense: "RE-2024-00123",
   ogImage: "/public/ogImage.png",
@@ -38,7 +38,7 @@ const siteConfig = {
   seo: {
     siteUrl: "https://www.ar-realestate-redsea.com",
     defaultTitle:
-      "AR Realestate Redsea | Premier Coastal Living in Egypt, Red Sea",
+      "AR Real Estate Redsea | Premier Coastal Living in Egypt, Red Sea",
     defaultDescription:
       "Discover your dream coastal home with AR Real Estate. Specializing in luxury properties, villas, and seaside apartments across the Red Sea destinations.",
     ogImage: "/public/ogImage.png",

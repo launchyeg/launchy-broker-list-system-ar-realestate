@@ -1,4 +1,4 @@
-# AR Realestate Broker List Platform
+# AR Real Estate Broker List Platform
 
 A broker listing web system built with Next.js, Tailwind CSS, and Supabase, designed to help real estate brokers showcase properties and projects, manage listings, and track client inquiries through an integrated dashboard.
 

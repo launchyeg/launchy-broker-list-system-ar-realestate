@@ -10,7 +10,7 @@ const SLIDES = [
   {
     image:
       "https://aqarproperty.com/wp-content/uploads/2025/08/The-View-Hurghada-residence-1.webp",
-    title: "AR Realestate Find Your Dream Home in Red Sea",
+    title: "AR Real Estate Find Your Dream Home in Red Sea",
     subtitle:
       "Stop wasting time with complicated search filters and discover your perfect coastal retreat through our intuitive, lightning-fast discovery tool.",
   },
