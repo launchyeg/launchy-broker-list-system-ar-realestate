@@ -228,6 +228,7 @@ export default function AddUnitPage() {
               onChange={(val) => update("type", val)}
               options={[
                 { value: "Villa", label: "Villa" },
+                { value: "Townhouse", label: "Townhouse" },
                 { value: "Penthouse", label: "Penthouse" },
                 { value: "Apartment", label: "Apartment" },
                 { value: "Studio", label: "Studio" },

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import { requireAdmin } from "@/lib/require-admin";
 
 export async function POST(req: NextRequest) {
+  const unauthorized = await requireAdmin();
+  if (unauthorized) return unauthorized;
+
   try {
     const unit = await req.json();
 

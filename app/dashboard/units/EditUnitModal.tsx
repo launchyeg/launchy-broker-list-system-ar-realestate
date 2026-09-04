@@ -220,6 +220,7 @@ export default function EditUnitModal({ unit, onClose, onSave }: Props) {
                 onChange={(val) => update("type", val)}
                 options={[
                   { value: "Villa", label: "Villa" },
+                  { value: "Townhouse", label: "Townhouse" },
                   { value: "Penthouse", label: "Penthouse" },
                   { value: "Apartment", label: "Apartment" },
                   { value: "Studio", label: "Studio" },

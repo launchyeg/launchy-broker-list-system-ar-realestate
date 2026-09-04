@@ -1,28 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase-server";
 
 export async function POST(req: NextRequest) {
-  const { username, password } = await req.json();
+  const { email, password } = await req.json();
 
-  if (
-    username !== process.env.ADMIN_USERNAME ||
-    password !== process.env.ADMIN_PASSWORD
-  ) {
+  if (!email || !password) {
+    return NextResponse.json(
+      { error: "Email and password are required" },
+      { status: 400 },
+    );
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
-  const response = NextResponse.json({ success: true });
-  response.cookies.set("admin_session", "authenticated", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24,
-    path: "/",
-  });
-  return response;
+  // supabase.auth.signInWithPassword() already wrote the session cookies
+  // via the cookie adapter in lib/supabase-server.ts.
+  return NextResponse.json({ success: true });
 }
 
 export async function DELETE() {
-  const response = NextResponse.json({ success: true });
-  response.cookies.set("admin_session", "", { maxAge: 0, path: "/" });
-  return response;
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  return NextResponse.json({ success: true });
 }

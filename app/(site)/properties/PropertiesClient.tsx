@@ -23,6 +23,7 @@ const PRICE_RANGES = [
 
 const TYPES = [
   { value: "Villa", label: "Villa" },
+  { value: "Townhouse", label: "Townhouse" },
   { value: "Penthouse", label: "Penthouse" },
   { value: "Apartment", label: "Apartment" },
   { value: "Studio", label: "Studio" },
