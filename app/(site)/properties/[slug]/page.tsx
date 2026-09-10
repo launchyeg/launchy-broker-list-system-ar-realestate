@@ -159,7 +159,7 @@ export default async function PropertyPage({
       ? [
           {
             icon: <Banknote size={48} className="text-brand-accent" />,
-            label: "Price",
+            label: `Price ${unit.listingType === "rent" ? " / Per Night" : ""}`,
             value: `${unit.currency} ${unit.price.toLocaleString("en-US")}`,
           },
         ]

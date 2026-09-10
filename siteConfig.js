@@ -66,7 +66,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "8" },
         { label: "Payment Plan", value: "5" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Unique lagoon and island city layout",
@@ -91,7 +91,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "14" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "30 minutes from Hurghada",
@@ -121,7 +121,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Commercial Area",
@@ -147,7 +147,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "6" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Private beach",
@@ -173,7 +173,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "1" },
         { label: "Payment Plan", value: "8" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Private beach",
@@ -199,7 +199,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "8" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Private car-free promenade along the beach",
@@ -224,7 +224,7 @@ const siteConfig = {
       stats: [
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Infinty Pools",
@@ -257,7 +257,7 @@ const siteConfig = {
         { label: "Location", value: "Makadi Heights" },
         { label: "Delivery", value: "2027" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Unobstructed views of the Red Sea coast",
@@ -286,7 +286,7 @@ const siteConfig = {
         { label: "Location", value: "Makadi Heights" },
         { label: "access", value: "Private Beach" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Innovative terraced design for maximum privacy",
@@ -315,7 +315,7 @@ const siteConfig = {
         { label: "Location", value: "Makadi Heights" },
         { label: "access", value: "Private Beach" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Grand standalone villa designs",
@@ -327,6 +327,60 @@ const siteConfig = {
       ],
       whyInvest:
         "Siyal Villas are positioned as the elite tier of Makadi Heights real estate. With limited supply and premium demand, they provide an unmatched combination of luxury living and wealth preservation.",
+    },
+    {
+      slug: "makadi-heights-phase-1",
+      label: "Makadi Heights - Phase 1",
+      image:
+        "https://aqarproperty.com/wp-content/uploads/2023/07/Makadi-Heights-2.webp",
+      heroImage:
+        "https://thehorizonrealestate.com/wp-content/uploads/2024/12/Makadi-Heights-hurghada-3-1.jpg",
+      destination: "makadi-heights",
+      destinationLabel: "Makadi Heights",
+      tagline: "Resort-style coastal living at the heart of Makadi Bay.",
+      description:
+        "Makadi Heights Phase 1 offers an elevated coastal lifestyle crafted by Orascom Development. Situated on a raised plateau overlooking the Red Sea, the community features fully finished homes seamlessly integrated with open landscapes, swimmable lagoons, and world-class leisure facilities.",
+      stats: [
+        { label: "Location", value: "Makadi Heights" },
+        { label: "Delivery", value: "Off-Plan" },
+      ],
+      highlights: [
+        "Elevated location providing panoramic Red Sea views",
+        "Access to a 33,000 sqm clubhouse with infinity pools",
+        "Fully finished units designed with Tuscan and modern aesthetics",
+        "Dedicated shuttle service to private beaches and Senzo Mall",
+        "Pedestrian-friendly green spine and sprawling lagoons",
+        "Integrated commercial area, sports courts, and children's zones",
+      ],
+      whyInvest:
+        "Phase 1 of Makadi Heights combines the proven track record of Orascom Development with high capital appreciation potential. Positioned in a rapidly growing, fully integrated destination near Hurghada Airport, it presents a lucrative opportunity for high rental yields and long-term investment value.",
+    },
+    {
+      slug: "baywest",
+      label: "Baywest",
+      image:
+        "https://egyprop.com/wp-content/uploads/2024/11/Bay-West-Soma-Bay-egyProp.com-Villa-A-B-Large.jpeg",
+      heroImage:
+        "https://www.housingegypt.com/Neighborhoods/349/Images/a21c32966bfa4648aaf4e1c9b424f1e7.jpg",
+      destination: "somabay",
+      destinationLabel: "Somabay",
+      tagline: "Unrivaled seaside tranquility and modern beachfront luxury.",
+      description:
+        "Baywest is an exclusive coastal sanctuary located along the pristine shores of Somabay. Thoughtfully designed with contemporary architecture and serene outdoor spaces, the project offers spacious residences wrapped in uninterrupted marine vistas, private beach access, and resort-style indulgence.",
+      stats: [
+        { label: "Location", value: "Somabay" },
+        { label: "Delivery", value: "Off-Plan" },
+      ],
+      highlights: [
+        "Direct proximity to Somabay's natural bay and private beaches",
+        "Fully finished, premium apartments and beach chalets",
+        "Panoramic sea, lagoon, and surrounding mountain views",
+        "Close access to championship golf, kitesurfing, and diving hubs",
+        "Integrated infinity pools, fitness centers, and spa access",
+        "Gated residential neighborhood with 24/7 security and concierge",
+      ],
+      whyInvest:
+        "Baywest offers a rare entry point into Somabay’s high-demand luxury market. Its prime coastal positioning, paired with year-round global tourism interest and strong short-term rental performance, ensures solid capital growth and exceptional ROI for property owners.",
     },
     {
       slug: "arc-soma",
@@ -344,7 +398,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Delivery", value: "2027" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Architecturally distinct modern design",
@@ -376,7 +430,7 @@ const siteConfig = {
           value: "Chalets, Penthouses, Standalone Villas",
         },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Unrivaled natural elevation for unobstructed views",
@@ -408,7 +462,7 @@ const siteConfig = {
           value: "Chalets, Penthouses, Standalone Villas",
         },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Unrivaled natural elevation for unobstructed views",
@@ -437,7 +491,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Exclusive access to private beach clubs",
@@ -466,7 +520,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Prime waterfront location in Soma Bay",
@@ -495,7 +549,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Spacious open-plan living arrangements",
@@ -524,7 +578,7 @@ const siteConfig = {
         { label: "Location", value: "Sahl Hasheesh" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "7" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Mediterranean-themed waterfront aesthetics",
@@ -553,7 +607,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Intimate and private residential clusters",
@@ -582,7 +636,7 @@ const siteConfig = {
         { label: "Location", value: "Makadi Heights" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Modern minimalist architectural design",
@@ -610,7 +664,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Direct views of championship golf courses",
@@ -639,7 +693,7 @@ const siteConfig = {
         { label: "Location", value: "Sahl Hasheesh" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "6" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Boutique residential community design",
@@ -668,7 +722,7 @@ const siteConfig = {
         { label: "Location", value: "Makadina" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "6" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Boutique residential community",
@@ -697,7 +751,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Projects", value: "3" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Iconic modern design and architecture",
@@ -727,7 +781,7 @@ const siteConfig = {
         { label: "Unit Types", value: "Apartments 2-4 BR (57 Units Total)" },
         { label: "Delivery", value: "Q3 2028 (2 Years)" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime ultra-luxury setting next to Fanadir Marina with direct Red Sea waterfront",
@@ -756,7 +810,7 @@ const siteConfig = {
         { label: "Unit Types", value: "Chalet Studio, 1BR, 2BR" },
         { label: "Delivery", value: "1 & 2 Years (Fastest Entry)" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime central location near El Gouna Downtown",
@@ -785,7 +839,7 @@ const siteConfig = {
         { label: "Unit Types", value: "Lofts, Twin Villas, Standalone Villas" },
         { label: "Delivery", value: "Q3 2028 (2 Years)" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime north waterfront location with open-to-sea views and private boat docks",
@@ -815,7 +869,7 @@ const siteConfig = {
         { label: "Location", value: "Tuban Islands / Art Island" },
         { label: "Delivery", value: "2 Years (39 Units Inventory)" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Uniquely positioned on Tuban Islands / Art Island with waterfront views",
@@ -844,7 +898,7 @@ const siteConfig = {
         { label: "Location", value: "El Gouna" },
         { label: "Down Payment", value: "15%" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Unique central cascading waterfalls",
@@ -874,7 +928,7 @@ const siteConfig = {
         { label: "Location", value: "El Gouna" },
         { label: "Delivery", value: "2 Years" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Quiet, private location near downtown and beach",
@@ -903,7 +957,7 @@ const siteConfig = {
         { label: "Location", value: "El Gouna" },
         { label: "Unit Types", value: "1-2 BR Apts" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Lakefront views for every unit",
@@ -932,7 +986,7 @@ const siteConfig = {
         { label: "Unit Types", value: "Twin & Standalone Villas 3BR" },
         { label: "Delivery", value: "2 Years (Limited Units)" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime corridor location near North Bay",
@@ -960,7 +1014,7 @@ const siteConfig = {
         { label: "Location", value: "El Gouna" },
         { label: "Developer", value: "Orascom" },
         { label: "Lifestyle", value: "Lagoonfront" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Access to Sheraton Miramar hotel facilities",
@@ -988,7 +1042,7 @@ const siteConfig = {
         { label: "Location", value: "El Gouna" },
         { label: "Developer", value: "Orascom" },
         { label: "Views", value: "Golf Course" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "12-meter distance between properties",
@@ -1016,7 +1070,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Price", value: "From EGP 77M" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Exclusive peninsula location",
@@ -1048,7 +1102,7 @@ const siteConfig = {
           value: "Studios, Apartments, Penthouses, Villas",
         },
         { label: "Views", value: "Lagoons, Gardens, Sea & Mountains" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime location between Hurghada and Sahl Hasheesh",
@@ -1078,14 +1132,14 @@ const siteConfig = {
         { label: "Location", value: "Ras Soma Waterfront" },
         { label: "Unit Types", value: "Luxury Waterfront Villas" },
         { label: "Payment Plan", value: "6 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Stunning direct views over crystal-clear private lakes",
         "Spacious villa layouts designed for maximum natural light and privacy",
         "Low density community surrounded by expansive greenery",
         "Direct access to walking promenades and water activities",
-        "Flexible 6-year payment plan with 10% downpayment",
+        "Flexible 6-year payment plan with 10% Down Payment",
         "World-class community infrastructure and 24/7 gated security",
       ],
       whyInvest:
@@ -1108,7 +1162,7 @@ const siteConfig = {
         { label: "Location", value: "Marina District, Ras Soma" },
         { label: "Unit Types", value: "Marina Residences & Townhomes" },
         { label: "Payment Plan", value: "6 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Pivotal position right at the entrance of the Ras Soma Marina",
@@ -1138,14 +1192,14 @@ const siteConfig = {
         { label: "Location", value: "Ras Soma Resort Center" },
         { label: "Unit Types", value: "1BR, 2BR & 3BR" },
         { label: "Payment Plan", value: "6 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Fully serviced, contemporary low-rise apartment buildings",
         "Private resort-style swimming pools and sun decks",
         "Efficient layouts ranging from cozy 1BR units to spacious 3BR family homes",
         "Proximity to pristine sandy beaches and central amenities",
-        "Accessible 6-year payment schedule with 10% downpayment",
+        "Accessible 6-year payment schedule with 10% Down Payment",
         "Turnkey property management options available",
       ],
       whyInvest:
@@ -1166,7 +1220,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Lifestyle", value: "Active/Green" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Turnkey project with 300 units",
@@ -1195,7 +1249,7 @@ const siteConfig = {
         { label: "Location", value: "Sahl Hasheesh" },
         { label: "Unit Types", value: "Luxury Apartments, Villas" },
         { label: "Payment Plan", value: "6 Years" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "Breathtaking views of the Red Sea",
@@ -1225,14 +1279,14 @@ const siteConfig = {
         { label: "Location", value: "Hurghada" },
         { label: "Unit Types", value: "Luxury Apartments & Suites" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Prime coastal location in Hurghada with easy city access",
         "Modern, open-plan architectural design with high-end finishes",
         "Scenic pool views and landscaped green spaces",
         "Gated community with 24/7 security and property management",
-        "Flexible 5-year installment plan with 15% downpayment",
+        "Flexible 5-year installment plan with 15% Down Payment",
         "High potential for holiday rentals and capital appreciation",
       ],
       whyInvest:
@@ -1254,7 +1308,7 @@ const siteConfig = {
         { label: "Location", value: "Hurghada" },
         { label: "Unit Range", value: "84-873 m2" },
         { label: "Payment Plan", value: "5 Years" },
-        { label: "Downpayment", value: "10%" },
+        { label: "Down Payment", value: "10%" },
       ],
       highlights: [
         "90% of units feature sea views",
@@ -1283,7 +1337,7 @@ const siteConfig = {
         { label: "Location", value: "Makadi Heights" },
         { label: "Starting Price", value: "EGP 8.5M" },
         { label: "Payment Plan", value: "8 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Variety of unit sizes (79-152m2)",
@@ -1312,7 +1366,7 @@ const siteConfig = {
         { label: "Location", value: "Sahl Hasheesh" },
         { label: "Delivery", value: "2026" },
         { label: "Payment Plan", value: "6 Years" },
-        { label: "Downpayment", value: "15%" },
+        { label: "Down Payment", value: "15%" },
       ],
       highlights: [
         "Direct private beach access",
@@ -1340,7 +1394,7 @@ const siteConfig = {
         { label: "Location", value: "Soma Bay" },
         { label: "Unit Types", value: "Villas, Duplexes" },
         { label: "Payment Plan", value: "5 or 8 Years" },
-        { label: "Downpayment", value: "5%" },
+        { label: "Down Payment", value: "5%" },
       ],
       highlights: [
         "Sea-front cliff villas available",

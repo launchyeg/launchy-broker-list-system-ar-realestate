@@ -325,6 +325,7 @@ export default function Navbar() {
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
+            aria-label="Close menu"
             className="text-brand-muted hover:text-brand-text transition-colors"
           >
             <X size={28} />

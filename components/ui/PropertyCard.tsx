@@ -26,6 +26,7 @@ const PropertyCard = ({ unit }: { unit: Unit }) => {
       </div>
       <p className="text-brand-muted text-base font-medium leading-7 mt-6 mb-2">
         {unit.currency} {unit.price.toLocaleString("en-US")}
+        {unit.listingType === "rent" && <span> / Per Night</span>}
       </p>
       <h3 className="font-display text-2xl md:text-3xl font-medium truncate text-brand-text leading-9 mb-1">
         {unit.name}

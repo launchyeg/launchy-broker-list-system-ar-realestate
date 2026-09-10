@@ -42,7 +42,7 @@ export default function ProjectsClient({ projects }: Props) {
       }
       // Destination
       if (destination && p.destination !== destination) return false;
-      // Downpayment — match last stat value
+      // Down Payment — match last stat value
       if (downpayment) {
         const lastStat = p.stats?.[p.stats.length - 1];
         const statValue = parseInt(
@@ -132,7 +132,7 @@ export default function ProjectsClient({ projects }: Props) {
                 />
                 <CustomSelect
                   value={downpayment}
-                  placeholder="Downpayment"
+                  placeholder="Down Payment"
                   onChange={setDownpayment}
                   options={DOWNPAYMENT_OPTIONS}
                 />

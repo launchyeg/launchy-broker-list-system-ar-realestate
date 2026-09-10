@@ -97,6 +97,8 @@ export default function ImageSlider({
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
+                aria-label={`Go to image ${i + 1}`}
+                aria-current={i === current}
                 className={`h-1 rounded-full transition-all duration-300 ${
                   i === current
                     ? "w-6 bg-white"

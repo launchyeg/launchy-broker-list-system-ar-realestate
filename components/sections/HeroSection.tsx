@@ -4,7 +4,6 @@ import siteConfig from "@/siteConfig";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CustomSelect from "@/components/dashboard/CustomSelect";
-import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const SLIDES = [
   {
@@ -94,7 +93,12 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
       <div className="relative z-20 max-w-[1380px] mx-auto px-6 md:px-8 w-full">
-        <AnimateOnScroll type="fade-up">
+        {/* This content is always above the fold on first paint, so it
+            renders immediately with a plain CSS entrance animation instead
+            of AnimateOnScroll's IntersectionObserver — gating guaranteed-
+            visible content behind "wait for JS to notice it's in view"
+            only delays it for no benefit. */}
+        <div className="animate-fade-up">
           <div
             className="transition-all duration-500 delay-75 max-w-[890px]"
             style={{
@@ -181,6 +185,8 @@ export default function HeroSection() {
               <button
                 key={i}
                 onClick={() => goTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === current}
                 className={`h-1 rounded-full transition-all duration-300 ${
                   i === current
                     ? "w-8 bg-brand-accent"
@@ -193,7 +199,7 @@ export default function HeroSection() {
               {String(SLIDES.length).padStart(2, "0")}
             </span>
           </div>
-        </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );

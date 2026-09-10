@@ -83,62 +83,59 @@ export const metadata: Metadata = {
   verification: {
     google: "ObyOV5UmPjPz3sJJgJHmpt8d6NJ5m4CLHRS9GuO2jT4",
   },
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
 };
 
-export default function RootLayout({
+// This is a nested layout under the root layout in app/layout.tsx, which
+// already renders <html>/<body> — it must not render them again. (It
+// previously did, producing invalid nested-document markup; Next merges
+// this `metadata` export with the root layout's automatically, no <head>
+// tag needed either — and a `viewport` key isn't valid here, see the
+// dedicated `viewport` export in app/layout.tsx.)
+export default function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* JSON-LD — Local Business structured data for Google */}
-        <script
-          type={"application/ld+json"}
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
-              name: siteConfig.brokerName,
-              description: siteConfig.seo.defaultDescription,
-              url: siteConfig.seo.siteUrl,
-              telephone: siteConfig.contact.phone,
-              email: siteConfig.contact.email,
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: siteConfig.contact.address,
-                addressCountry: "EG",
-              },
-              openingHours: "Mo-Su 09:00-20:00",
-              priceRange: "EGP 1,000,000 — EGP 20,000,000",
-              areaServed: [
-                "El Gouna",
-                "Hurghada",
-                "Makadi Heights",
-                "Makadina",
-                "Sahl Hasheesh",
-                "Soma Bay",
-                "Ras Soma Travco",
-              ],
-            }),
-          }}
-        />
-      </head>
-      <body>
-        <RecaptchaProvider>
-          <Navbar />
-          <main>{children}</main>
-          <CtaBanner />
-          <Footer />
-          <ContactFloat />
-        </RecaptchaProvider>
-      </body>
-    </html>
+    <>
+      {/* JSON-LD — Local Business structured data for Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RealEstateAgent",
+            name: siteConfig.brokerName,
+            description: siteConfig.seo.defaultDescription,
+            url: siteConfig.seo.siteUrl,
+            telephone: siteConfig.contact.phone,
+            email: siteConfig.contact.email,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: siteConfig.contact.address,
+              addressCountry: "EG",
+            },
+            openingHours: "Mo-Su 09:00-20:00",
+            priceRange: "EGP 1,000,000 — EGP 20,000,000",
+            areaServed: [
+              "El Gouna",
+              "Hurghada",
+              "Makadi Heights",
+              "Makadina",
+              "Sahl Hasheesh",
+              "Soma Bay",
+              "Ras Soma Travco",
+            ],
+          }),
+        }}
+      />
+      <RecaptchaProvider>
+        <Navbar />
+        <main>{children}</main>
+        <CtaBanner />
+        <Footer />
+        <ContactFloat />
+      </RecaptchaProvider>
+    </>
   );
 }

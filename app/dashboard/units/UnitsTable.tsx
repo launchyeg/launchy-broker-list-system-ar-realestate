@@ -118,6 +118,7 @@ export default function UnitsTable({ units }: { units: Unit[] }) {
                 <td className="px-5 py-4 text-stone-600">{unit.type}</td>
                 <td className="px-5 py-4 font-medium text-stone-800">
                   {unit.currency} {unit.price.toLocaleString("en-US")}
+                  {unit.listingType === "rent" && <span> / Per Night</span>}
                 </td>
                 <td className="px-5 py-4">
                   <div className="flex flex-col gap-1">

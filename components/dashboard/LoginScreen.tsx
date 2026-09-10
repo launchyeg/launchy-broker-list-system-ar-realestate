@@ -108,7 +108,7 @@ export default function LoginScreen() {
                 rel="noopener noreferrer"
                 className="text-sm text-brand-muted hover:text-brand-text transition-colors font-medium"
               >
-                Forgot password or username
+                Forgot email or password
               </a>
             </p>
           </div>

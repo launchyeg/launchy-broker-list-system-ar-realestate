@@ -36,10 +36,18 @@ export default function ProjectsSlider({ projects }: { projects: Project[] }) {
 
       <AnimateOnScroll type="fade-in" delay={100}>
         <div className="flex justify-center gap-4">
-          <button onClick={prev} className="text-brand-text cursor-pointer">
+          <button
+            onClick={prev}
+            aria-label="Previous project"
+            className="text-brand-text cursor-pointer"
+          >
             <ChevronLeft size={32} />
           </button>
-          <button onClick={next} className="text-brand-text cursor-pointer">
+          <button
+            onClick={next}
+            aria-label="Next project"
+            className="text-brand-text cursor-pointer"
+          >
             <ChevronRight size={32} />
           </button>
         </div>

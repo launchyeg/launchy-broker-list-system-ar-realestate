@@ -30,7 +30,7 @@ export default function CeoSection() {
       <AnimateOnScroll type="fade-up">
         <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16">
           <h2 className="font-display text-4xl md:text-5xl leading-11 md:leading-16 text-brand-text mb-4">
-            Let's Discuss Your Real Estate Goals
+            Let&apos;s Discuss Your Real Estate Goals
           </h2>
           <p className="text-brand-muted text-base font-medium leading-relaxed">
             Buy or sell your home with us. House prices, expert inspections,
@@ -57,7 +57,7 @@ export default function CeoSection() {
 
           <div className="absolute bottom-8 left-6 md:bottom-14 md:left-10">
             <p className="text-white font-display text-xl md:text-3xl leading-7 font-medium mb-2">
-              "Owning a home is a keystone of wealth..."
+              &ldquo;Owning a home is a keystone of wealth...&rdquo;
             </p>
             <p className="text-white/70 text-base md:text-lg leading-7">
               Ahmed Rashad · CEO & Founder
@@ -69,6 +69,8 @@ export default function CeoSection() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
+                aria-label={`Go to photo ${i + 1}`}
+                aria-current={i === current}
                 className={`h-1 rounded-full transition-all duration-300 ${
                   i === current
                     ? "w-6 bg-white"
