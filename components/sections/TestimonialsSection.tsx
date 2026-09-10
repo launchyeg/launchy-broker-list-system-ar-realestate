@@ -40,7 +40,7 @@ const TESTIMONIALS = [
     name: "Maria Hoffmann",
     role: "Customer",
     image:
-      "https://tjwcefkkahkcxwljdbky.supabase.co/storage/v1/object/public/property-images/general/somabayhero.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7HL9rJ9rfRodXUcwUlE99CuTA2zCVl3s9MvIfztFlyqxLPXHJG6dtTt8&s=10",
   },
   {
     id: 5,

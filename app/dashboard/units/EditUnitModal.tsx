@@ -188,6 +188,7 @@ export default function EditUnitModal({ unit, onClose, onSave }: Props) {
               {form.price > 0 && (
                 <p className="text-[11px] text-stone-400 mt-1">
                   {formatPrice(form.price, form.currency)}
+                  {form.listingType === "rent" ? " / Per Night" : ""}
                 </p>
               )}
             </div>
