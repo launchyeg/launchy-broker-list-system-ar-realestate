@@ -10,7 +10,11 @@ import UnitsGrid from "@/components/ui/UnitsGrid";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
-export const revalidate = 60;
+// Units per project change roughly once a month; on-demand revalidation
+// (see app/api/dashboard/units/**) refreshes this immediately on an
+// admin edit, so this is just the outer safety-net ceiling.
+export const revalidate = 2592000; // 30 days
+
 interface PaymentPlan {
   downPayment: string;
   installments: string;

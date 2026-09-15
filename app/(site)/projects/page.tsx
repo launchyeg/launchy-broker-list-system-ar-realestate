@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import siteConfig from "@/siteConfig";
 import ProjectsClient from "./ProjectsClient";
 
-export const revalidate = 60;
+// No Supabase data here — projects come entirely from siteConfig, which
+// only changes via a code deploy, so this page is fully static (no
+// revalidate needed, same as the /destinations list page).
 
 export const metadata: Metadata = {
   title: `All Projects | ${siteConfig.brokerName}`,

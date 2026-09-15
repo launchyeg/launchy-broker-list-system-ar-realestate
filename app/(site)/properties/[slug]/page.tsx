@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { Metadata } from "next";
 import type { Unit } from "@/types/unit";
 import { supabase } from "@/lib/supabase";
@@ -23,7 +24,24 @@ import GeneralFormSection from "@/components/sections/GeneralFormSection";
 import UnitsGrid from "@/components/ui/UnitsGrid";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
-export const revalidate = 60;
+// Unit data changes roughly once a month; on-demand revalidation
+// (see app/api/dashboard/units/**) refreshes this immediately on an
+// admin edit, so this is just the outer safety-net ceiling.
+export const revalidate = 2592000; // 30 days
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+// generateMetadata and the page component both need the same unit row.
+// Supabase calls aren't auto-memoized the way fetch() is, so wrap this in
+// React's cache() to dedupe them into a single query per render pass.
+const getUnitBySlug = cache(async (slug: string) => {
+  const { data } = await supabase
+    .from("units")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+  return data;
+});
 
 // ── Static Params ─────────────────────────────────────────────────────────────
 
@@ -41,11 +59,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
 
-  const { data: unit } = await supabase
-    .from("units")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  const unit = await getUnitBySlug(slug);
 
   if (!unit) return {};
 
@@ -115,11 +129,7 @@ export default async function PropertyPage({
 }) {
   const { slug } = await params;
 
-  const { data: raw } = await supabase
-    .from("units")
-    .select("*")
-    .eq("slug", slug)
-    .single();
+  const raw = await getUnitBySlug(slug);
 
   if (!raw) notFound();
 

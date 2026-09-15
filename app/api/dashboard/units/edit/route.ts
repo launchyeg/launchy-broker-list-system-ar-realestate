@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/require-admin";
 
@@ -8,6 +9,15 @@ export async function POST(req: NextRequest) {
 
   try {
     const unit = await req.json();
+
+    // Fetch the pre-edit row so we know the *old* slug/destination/project
+    // in case any of them changed — both the old and new public pages need
+    // their cache busted.
+    const { data: previous } = await supabaseAdmin
+      .from("units")
+      .select("slug, destination, project")
+      .eq("id", unit.id)
+      .single();
 
     const { error } = await supabaseAdmin
       .from("units")
@@ -36,6 +46,26 @@ export async function POST(req: NextRequest) {
       .eq("id", unit.id);
 
     if (error) throw error;
+
+    // Public pages are cached for up to 30 days (see the `revalidate`
+    // exports on the site pages) — bust every affected path, old and new,
+    // so the edit shows up immediately instead of waiting for that ceiling.
+    revalidatePath("/");
+    revalidatePath("/properties");
+    revalidatePath(`/properties/${unit.slug}`);
+    if (unit.destination) revalidatePath(`/destinations/${unit.destination}`);
+    if (unit.project) revalidatePath(`/projects/${unit.project}`);
+
+    if (previous && previous.slug !== unit.slug) {
+      revalidatePath(`/properties/${previous.slug}`);
+    }
+    if (previous && previous.destination !== unit.destination) {
+      revalidatePath(`/destinations/${previous.destination}`);
+    }
+    if (previous && previous.project !== unit.project) {
+      revalidatePath(`/projects/${previous.project}`);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Edit unit error:", error);

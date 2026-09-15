@@ -28,7 +28,10 @@ interface Destination {
   whyInvest: string;
 }
 
-export const revalidate = 60;
+// Units per destination change roughly once a month; on-demand
+// revalidation (see app/api/dashboard/units/**) refreshes this
+// immediately on an admin edit, so this is just the safety-net ceiling.
+export const revalidate = 2592000; // 30 days
 
 export async function generateStaticParams() {
   return siteConfig.destinations.map((d) => ({ slug: d.slug }));

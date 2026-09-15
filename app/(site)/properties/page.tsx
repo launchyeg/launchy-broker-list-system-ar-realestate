@@ -5,7 +5,10 @@ import { mapUnit } from "@/lib/mapUnit";
 import siteConfig from "@/siteConfig";
 import PropertiesClient from "./PropertiesClient";
 
-export const revalidate = 60;
+// Unit data changes roughly once a month; on-demand revalidation
+// (see app/api/dashboard/units/**) refreshes this immediately on an
+// admin edit, so this is just the outer safety-net ceiling.
+export const revalidate = 2592000; // 30 days
 
 export const metadata: Metadata = {
   title: `All Properties |  ${siteConfig.brokerName}`,

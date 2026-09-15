@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/require-admin";
 
@@ -34,6 +35,16 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) throw error;
+
+    // Public pages are cached for up to 30 days (see the `revalidate`
+    // exports on the site pages) — bust the affected ones now so the new
+    // unit shows up immediately instead of waiting for that ceiling.
+    revalidatePath("/");
+    revalidatePath("/properties");
+    revalidatePath(`/properties/${unit.slug}`);
+    if (unit.destination) revalidatePath(`/destinations/${unit.destination}`);
+    if (unit.project) revalidatePath(`/projects/${unit.project}`);
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Add unit error:", error);
