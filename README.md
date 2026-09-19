@@ -1,4 +1,4 @@
-# AR Real Estate Broker List Platform
+# AR Real Estate Broker List System
 
 A broker listing web system built with Next.js, Tailwind CSS, and Supabase,
 designed to help real estate brokers showcase properties and projects,
@@ -77,13 +77,13 @@ Copy the example file and fill in real values:
 cp .env.local.example .env.local
 ```
 
-| Variable | Description |
-| --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon/public key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service-role key — **server-only, never expose this to the client** |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA v3 site key |
-| `RECAPTCHA_SECRET_KEY` | Google reCAPTCHA v3 secret key |
+| Variable                         | Description                                                                  |
+| -------------------------------- | ---------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`       | Your Supabase project URL                                                    |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`  | Supabase anon/public key                                                     |
+| `SUPABASE_SERVICE_ROLE_KEY`      | Supabase service-role key — **server-only, never expose this to the client** |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA v3 site key                                                 |
+| `RECAPTCHA_SECRET_KEY`           | Google reCAPTCHA v3 secret key                                               |
 
 Your Supabase project needs a `units` table and a `unit_form_requests`
 table, plus a `property-images` storage bucket — see
