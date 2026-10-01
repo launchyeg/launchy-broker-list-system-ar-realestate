@@ -7,6 +7,7 @@ import siteConfig from "@/siteConfig";
 import HeroSection from "@/components/sections/HeroSection";
 import TrustBar from "@/components/sections/TrustBar";
 import PropertyCard from "@/components/ui/PropertyCard";
+import MapSection from "@/components/sections/MapSection";
 import CeoSection from "@/components/sections/CeoSection";
 import DestinationSlider from "@/components/ui/DestinationSlider";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -76,6 +77,25 @@ export default async function HomePage() {
           </div>
         </AnimateOnScroll>
       </section>
+
+      <MapSection
+        destinations={destination.map((d) => ({
+          slug: d.slug,
+          label: d.label,
+          image: d.image,
+          tagline: d.tagline,
+        }))}
+        projects={(siteConfig.projects as any[]).map((p) => ({
+          slug: p.slug,
+          label: p.label,
+          image: p.image,
+          tagline: p.tagline,
+          stats: p.stats,
+          destination: p.destination,
+          destinationLabel: p.destinationLabel,
+        }))}
+        units={allUnits}
+      />
 
       <CeoSection />
 
