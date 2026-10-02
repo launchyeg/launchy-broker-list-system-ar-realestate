@@ -28,3 +28,6 @@ yarn-error.log*
 node_modules/
 
 .vscode
+
+# TypeScript incremental build cache
+*.tsbuildinfo

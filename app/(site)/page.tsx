@@ -79,13 +79,7 @@ export default async function HomePage() {
       </section>
 
       <MapSection
-        destinations={destination.map((d) => ({
-          slug: d.slug,
-          label: d.label,
-          image: d.image,
-          tagline: d.tagline,
-        }))}
-        projects={(siteConfig.projects as any[]).map((p) => ({
+        projects={siteConfig.projects.map((p) => ({
           slug: p.slug,
           label: p.label,
           image: p.image,

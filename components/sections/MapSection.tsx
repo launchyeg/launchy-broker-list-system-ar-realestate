@@ -1,8 +1,7 @@
 "use client";
 
-// Map section. Layout (lg+): the map on the left, the destination card and
-// a project slider stacked on the right, and a units slider across the
-// bottom. Everything follows the hovered / selected region.
+// Map section. Layout (lg+): the map on the left, a project slider on the
+// right, and a units slider across the bottom. Everything follows the hovered / selected region.
 //
 // page.tsx stays a Server Component; this holds the hover/selected-region
 // state. Hover previews a region (the panels are not clickable and revert
@@ -12,7 +11,6 @@ import { useEffect, useState } from "react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import InteractiveMap from "@/components/ui/InteractiveMap";
 import MapSlider from "@/components/ui/MapSlider";
-import DestinationCard, { Destination } from "@/components/ui/DestinationCard";
 import ProjectsCard, { Project } from "@/components/ui/ProjectsCard";
 import PropertyCard from "@/components/ui/PropertyCard";
 import type { Unit } from "@/types/unit";
@@ -21,13 +19,11 @@ import { regions } from "@/lib/mapRegions";
 export type MapProject = Project & { destination: string };
 
 type MapSectionProps = {
-  destinations: Destination[];
   projects: MapProject[];
   units: Unit[];
 };
 
 export default function MapSection({
-  destinations,
   projects,
   units,
 }: MapSectionProps) {
@@ -40,9 +36,6 @@ export default function MapSection({
 
   const shownLocation = hoveredLocation ?? activeLocation;
   const region = regions.find((r) => r.location === shownLocation);
-  const destination = region
-    ? destinations.find((d) => d.slug === region.id)
-    : undefined;
   const regionProjects = region
     ? projects.filter((p) => p.destination === region.id)
     : [];
