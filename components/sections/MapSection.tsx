@@ -1,11 +1,17 @@
 "use client";
 
-// Map section. Layout (lg+): the map on the left, a project slider on the
-// right, and a units slider across the bottom. Everything follows the hovered / selected region.
+// Map section. The map starts full width; when a destination is hovered or
+// clicked it shrinks (lg+) to make room for that destination's project
+// slider on the right, and a units slider appears across the bottom.
 //
 // page.tsx stays a Server Component; this holds the hover/selected-region
-// state. Hover previews a region (the panels are not clickable and revert
-// when the cursor leaves); click pins it so the sliders and links work.
+// state. Hover previews a region (the panels are not clickable); click pins
+// it so the sliders and links work.
+//
+// Shrinking the map moves regions out from under the cursor, which would
+// fire "mouse left" and re-expand it in a loop. So a hovered region stays
+// shown (lastHovered) until the pointer leaves the section or the user
+// clicks outside a region/panel.
 
 import { useEffect, useState } from "react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
@@ -23,18 +29,21 @@ type MapSectionProps = {
   units: Unit[];
 };
 
-export default function MapSection({
-  projects,
-  units,
-}: MapSectionProps) {
+export default function MapSection({ projects, units }: MapSectionProps) {
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+  const [lastHovered, setLastHovered] = useState<string | null>(null);
+
+  const handleRegionHover = (location: string | null) => {
+    setHoveredLocation(location);
+    if (location) setLastHovered(location);
+  };
 
   const handleRegionClick = (location: string) => {
     setActiveLocation((prev) => (prev === location ? null : location));
   };
 
-  const shownLocation = hoveredLocation ?? activeLocation;
+  const shownLocation = hoveredLocation ?? activeLocation ?? lastHovered;
   const region = regions.find((r) => r.location === shownLocation);
   const regionProjects = region
     ? projects.filter((p) => p.destination === region.id)
@@ -42,76 +51,106 @@ export default function MapSection({
   const regionUnits = region
     ? units.filter((u) => u.destinationLabel === region.location)
     : [];
+  const open = region !== undefined;
   const pinned = shownLocation !== null && shownLocation === activeLocation;
 
   // Clicking anywhere other than a region or the panels clears the
   // selection, so the last destination is not left highlighted.
   useEffect(() => {
-    if (!activeLocation) return;
+    if (!activeLocation && !lastHovered) return;
     const onPointerDown = (e: PointerEvent) => {
       const target = e.target as Element | null;
       if (target?.closest("[data-map-region], [data-map-panel]")) return;
       setActiveLocation(null);
+      setLastHovered(null);
     };
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, [activeLocation]);
+  }, [activeLocation, lastHovered]);
 
   const lockedClass = pinned ? "" : "pointer-events-none";
 
   return (
-    <section className="max-w-[1380px] mx-auto px-6 md:px-8 pb-[50px] md:pb-[70px] lg:pb-[120px] flex flex-col gap-6">
-      <AnimateOnScroll type="fade-up" delay={100}>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-          <div className="lg:col-span-2">
-            <InteractiveMap
-              activeLocation={activeLocation}
-              onRegionClick={handleRegionClick}
-              onRegionHover={setHoveredLocation}
-            />
-          </div>
-
-          <div data-map-panel className={`flex flex-col gap-6 ${lockedClass}`}>
-            {!region ? (
-              <p className="text-brand-muted lg:pt-10">
-                Hover or click a destination to see its details.
-              </p>
-            ) : (
-              <>
-                <div key={`p-${region.id}`}>
-                  {regionProjects.length === 0 ? (
-                    <p className="text-brand-muted">
-                      No projects listed here yet.
-                    </p>
-                  ) : (
-                    <MapSlider
-                      items={regionProjects}
-                      getKey={(p) => p.slug}
-                      renderItem={(p) => <ProjectsCard projects={p} />}
-                      perView={1}
-                    />
-                  )}
-                </div>
-              </>
-            )}
-          </div>
+    <section className="max-w-[1380px] mx-auto px-6 md:px-8 pb-[50px] md:pb-[70px] lg:pb-[120px]">
+      <AnimateOnScroll type="fade-up">
+        <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16">
+          <h2 className="font-display text-4xl md:text-5xl leading-11 md:leading-16 text-brand-text mb-4">
+            Browse by location
+          </h2>
+          <p className="text-brand-muted text-base font-medium leading-relaxed">
+            From El Gouna to Ras Soma — click the map to filter listings.
+          </p>
         </div>
       </AnimateOnScroll>
 
-      {/* Always rendered so the page does not jump as the cursor moves. */}
-      <div data-map-panel className={`min-h-112 ${lockedClass}`}>
-        {region && (
-          <div key={`u-${region.id}`}>
-            {regionUnits.length === 0 ? (
-              <p className="text-brand-muted">No properties listed here yet.</p>
-            ) : (
-              <MapSlider
-                items={regionUnits}
-                getKey={(u) => u.id}
-                renderItem={(u) => <PropertyCard unit={u} />}
-                perView={3}
+      <div
+        onMouseLeave={() => {
+          setHoveredLocation(null);
+          setLastHovered(null);
+        }}
+      >
+        <AnimateOnScroll type="fade-up" delay={100}>
+          <div className="flex flex-col lg:flex-row items-start">
+            <div
+              className={`w-full transition-[width] duration-500 ease-out ${
+                open ? "lg:w-2/3" : "lg:w-full"
+              }`}
+            >
+              <InteractiveMap
+                activeLocation={activeLocation}
+                onRegionClick={handleRegionClick}
+                onRegionHover={handleRegionHover}
               />
-            )}
+            </div>
+
+            {/* Always mounted on lg so the width can animate; collapsed to 0
+                until a destination is shown. Hidden below lg until then. */}
+            <div
+              data-map-panel
+              className={`overflow-hidden transition-all duration-500 ease-out ${lockedClass} ${
+                open
+                  ? "w-full mt-6 lg:mt-0 lg:w-1/3 lg:pl-6 opacity-100"
+                  : "hidden lg:block lg:w-0 lg:pl-0 opacity-0"
+              }`}
+            >
+              <div className="lg:min-w-[24rem]">
+                {region && (
+                  <div key={`p-${region.id}`}>
+                    {regionProjects.length === 0 ? (
+                      <p className="text-brand-muted">
+                        No projects listed here yet.
+                      </p>
+                    ) : (
+                      <MapSlider
+                        items={regionProjects}
+                        getKey={(p) => p.slug}
+                        renderItem={(p) => <ProjectsCard projects={p} />}
+                        perView={1}
+                      />
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {region && (
+          <div data-map-panel className={`mt-6 ${lockedClass}`}>
+            <div key={`u-${region.id}`}>
+              {regionUnits.length === 0 ? (
+                <p className="text-brand-muted">
+                  No properties listed here yet.
+                </p>
+              ) : (
+                <MapSlider
+                  items={regionUnits}
+                  getKey={(u) => u.id}
+                  renderItem={(u) => <PropertyCard unit={u} />}
+                  perView={3}
+                />
+              )}
+            </div>
           </div>
         )}
       </div>
