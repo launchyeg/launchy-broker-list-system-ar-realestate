@@ -5,8 +5,8 @@
 // slider on the right, and a units slider appears across the bottom.
 //
 // page.tsx stays a Server Component; this holds the hover/selected-region
-// state. Hover previews a region (the panels are not clickable); click pins
-// it so the sliders and links work.
+// state. Hover previews a region and click pins it; the panels stay
+// clickable either way.
 //
 // Shrinking the map moves regions out from under the cursor, which would
 // fire "mouse left" and re-expand it in a loop. So a hovered region stays
@@ -52,7 +52,6 @@ export default function MapSection({ projects, units }: MapSectionProps) {
     ? units.filter((u) => u.destinationLabel === region.location)
     : [];
   const open = region !== undefined;
-  const pinned = shownLocation !== null && shownLocation === activeLocation;
 
   // Clicking anywhere other than a region or the panels clears the
   // selection, so the last destination is not left highlighted.
@@ -67,8 +66,6 @@ export default function MapSection({ projects, units }: MapSectionProps) {
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [activeLocation, lastHovered]);
-
-  const lockedClass = pinned ? "" : "pointer-events-none";
 
   return (
     <section className="max-w-[1380px] mx-auto px-6 md:px-8 pb-[50px] md:pb-[70px] lg:pb-[120px]">
@@ -107,7 +104,7 @@ export default function MapSection({ projects, units }: MapSectionProps) {
                 until a destination is shown. Hidden below lg until then. */}
             <div
               data-map-panel
-              className={`overflow-hidden transition-all duration-500 ease-out ${lockedClass} ${
+              className={`overflow-hidden transition-all duration-500 ease-out ${
                 open
                   ? "w-full mt-6 lg:mt-0 lg:w-1/3 lg:pl-6 opacity-100"
                   : "hidden lg:block lg:w-0 lg:pl-0 opacity-0"
@@ -136,7 +133,7 @@ export default function MapSection({ projects, units }: MapSectionProps) {
         </AnimateOnScroll>
 
         {region && (
-          <div data-map-panel className={`mt-6 ${lockedClass}`}>
+          <div data-map-panel className="mt-6">
             <div key={`u-${region.id}`}>
               {regionUnits.length === 0 ? (
                 <p className="text-brand-muted">
